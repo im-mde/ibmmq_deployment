@@ -1,0 +1,6 @@
+ibmmq_install_path: /opt/mqm
+ibmmq_primary_install: yes
+ibmmq_debian_install: no
+ibmmq_package: None
+ibmmq_rpm_files: None
+ibmmq_deb_files: None

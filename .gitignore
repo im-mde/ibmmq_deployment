@@ -1,0 +1,4 @@
+terraform/
+ansible/group_vars/
+ansible/inventory
+ansible/test.yml

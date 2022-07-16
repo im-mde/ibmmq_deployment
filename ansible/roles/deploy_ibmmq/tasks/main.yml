@@ -1,0 +1,11 @@
+- name: "Verifying valid operating system family: RedHat, Suse, or Debian"
+  assert:
+    that: ansible_os_family == 'RedHat' or 
+          ansible_os_family == 'Suse' or 
+          ansible_os_family == 'Debian'
+- name: "Verifying ibmmq_package variable is defined"
+  assert:
+    that:
+      - "{{ ibmmq_package }} is defined"
+      - "{{ ibmmq_package }} | length > 0"
+      - "{{ ibmmq_package }} != None"
