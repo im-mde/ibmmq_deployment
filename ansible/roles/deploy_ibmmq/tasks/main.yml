@@ -9,3 +9,17 @@
       - "{{ ibmmq_package }} is defined"
       - "{{ ibmmq_package }} | length > 0"
       - "{{ ibmmq_package }} != None"
+- name: "Creating install directory {{ibmmq_install_path}}"
+  become: yes
+  file:
+    path: "{{ ibmmq_install_path }}"
+    state: directory
+    mode: 0754
+- name: "Extracting package to {{ ibmmq_install_path }}"
+  become: yes
+  unarchive:
+    src: "{{ ibmmq_package }}"
+    dest: "{{ ibmmq_install_path }}"
+- name: Accepting IBM MQ license
+  become: yes
+  command: "{{ ibmmq_install_path }}/MQServer/mqlicense.sh -accept"
